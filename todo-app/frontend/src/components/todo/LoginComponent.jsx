@@ -17,7 +17,7 @@ class LoginComponent extends Component {
 
     // update state based on form change 
     handleChange(event) {
-        console.log(this.state)
+        // console.log(this.state)
         this.setState(
             {
                 // must be a constant, use []

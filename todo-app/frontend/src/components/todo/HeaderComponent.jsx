@@ -7,7 +7,7 @@ class HeaderComponent extends Component {
     /* this is rendered on every page display */
     render() {
         const isUserLoggedIn = AuthenticationService.isUserLoggedId()
-        console.log(isUserLoggedIn)
+        // console.log(isUserLoggedIn)
         return (
             <div>
                 <header>
