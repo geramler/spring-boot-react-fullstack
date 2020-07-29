@@ -4,6 +4,7 @@ import AuthenticationService from './AuthenticationService.js'
 
 class ListTodosComponent extends Component {
     constructor(props) {
+        console.log('constructor')
         super(props)
         this.state = {
             todos:
@@ -15,15 +16,32 @@ class ListTodosComponent extends Component {
         }
     }
 
+    // called just before a component is unmounted (removed from view)
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log('shouldComponentUpdate')
+        console.log(nextProps)
+        console.log(nextState)
+        // do render() after state is updated
+        return true;
+    }
+
+    // called after the first time render() is called 
     componentDidMount() {
+        console.log('componentDidMount')
         let username = AuthenticationService.getLoggedInUserName()
         TodoDataService.retrieveAllTodos(username)
             .then(response => {
                 this.setState({ todos: response.data })
             })
     }
-
+    
+    // called after constructor and at anytime state is updated
     render() {
+        console.log('render')
         return (
             <div className="listTodosComponent">
                 <h1>List Todos</h1>
