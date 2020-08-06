@@ -15,6 +15,11 @@ public class Todo {
 
 	private boolean isDone;
 
+	// if I want to have something as a request body (controller), then you'd need
+	// actually have a default constructor
+	protected Todo() {
+	}
+
 	public Todo(long id, String username, String description, Date targetDate, boolean isDone) {
 		super();
 		this.id = id;
@@ -84,6 +89,6 @@ public class Todo {
 		if (id != other.id)
 			return false;
 		return true;
-	}	
-	
+	}
+
 }
